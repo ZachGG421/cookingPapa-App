@@ -26,17 +26,40 @@ addIngredientButton.addEventListener('click', (event) => {
 
         ingredientsArr.push(ingredient);
     }
-
 });
 
+//search to api
 searchButton.addEventListener('click', () => {
-    if (ingredientsArr.length === 0) {
-        alert('Ingredient list is empty');
-        return;
-    }
-    else {
-        console.log(ingredientsArr);
-    }
+
+    //const domain = "https://api.spoonacular.com/recipes/complexSearch";
+    //const domain = "https://api.spoonacular.com/recipes/6969/information";
+    const domain = "https://api.spoonacular.com/recipes/findByIngredients";
+    const apiKey = "bfe6078194544716a3a05ca2ca45eb48";
+
+    //const ingredients = "bananas";
+
+    const queryParams = {
+        apiKey: apiKey,
+        number: 10,
+        ingredients: ingredientsArr
+    };
+
+    const queryString = Object.keys(queryParams)
+        .map(key => key + '=' + encodeURIComponent(queryParams[key]))
+        .join('&');
+
+    const apiURL = `${domain}?${queryString}`;
+    console.log(apiURL);   
+    
+    fetch(apiURL)
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('HTTP error! Status: ${response.status}');
+            }
+            return response.json();
+        })
+        .then(data => console.log(data))
+        .catch(error => console.error("Error:", error))
 });
 
 
