@@ -17,8 +17,8 @@ fetchChosenRecipe(recipeId)
         
     });
 
-
-    //new
+    //start of spriint 3
+    
     function displayRecipeDetails(recipe) {
         // Get the container element where you want to display the details
         const recipeContainer = document.getElementById('recipeContainer');
