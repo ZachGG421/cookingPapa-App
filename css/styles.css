@@ -28,10 +28,10 @@
     align-items: center;
     gap: 572px;
     align-self: stretch;
-    margin: 0 auto;
 }
 
 .navbar {
+    float: right;
     display: flex;
     align-items: center;
     gap: 94px;
@@ -44,17 +44,14 @@
     color: #252B42;
     text-align: center;
     float: right;
-
-/* Link */
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28px; /* 175% */
-    letter-spacing: 0.2px;
+    font-family: Arial;
 }
 
 .logo {
-    display: flex;
-    margin: 0;
+    width: 154px;   
+    height: 136px;
+}
+
+.h1 {
+    float: left;
 }
