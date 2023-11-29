@@ -1,5 +1,5 @@
 //getting util functions from utils.js
-import {addIngredient, removeIngredient, ingredientsArr, createIngredientsList} from './utils.js';
+import {addIngredient, removeIngredient, ingredientsArr, createIngredientsList, redirectToRecipePage} from './utils.js';
 import {fetchRecipes} from './api.js'
 
 //DOM elements
@@ -52,21 +52,29 @@ searchButton.addEventListener('click', () => {
                 image.src = recipe.image;
                 image.alt = recipe.title;
 
+                console.log(recipe.id);
+
                 recipeContainer.appendChild(title);
                 recipeContainer.appendChild(image);
 
                 if (recipe.usedIngredients) {
                     const usedIngredientsList = createIngredientsList(recipe.usedIngredients, 'Used Ingredients:');
-                    
                     recipeContainer.appendChild(usedIngredientsList);
                 }
 
                 if (recipe.unusedIngredients) {
                     const unusedIngredientsList = createIngredientsList(recipe.unusedIngredients, 'Unused Ingredients:');
-                    console.log(unusedIngredientsList)
                     recipeContainer.appendChild(unusedIngredientsList);
                 }
+
+                
+                const recipeButton = document.createElement('button');
+                recipeButton.textContent = "recipe";
+                recipeButton.addEventListener('click', () => redirectToRecipePage(recipe.id));
+                recipeContainer.appendChild(recipeButton);
+
                 resultsContainer.appendChild(recipeContainer);
+                
             });
         });
 });

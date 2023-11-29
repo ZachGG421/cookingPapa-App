@@ -8,7 +8,6 @@ export async function fetchRecipes(ingredients) {
       apiKey: apiKey,
       number: 10,
       ingredients: ingredients,
-      //addRecipeInformation: true,
     };
 
     const queryString = Object.keys(queryParams)
@@ -16,7 +15,7 @@ export async function fetchRecipes(ingredients) {
     .join('&');
 
   const apiURL = `${domain}?${queryString}`;
-  console.log(apiURL)
+  console.log(apiURL);
 
   try {
     const response = await fetch(apiURL);
@@ -33,3 +32,35 @@ export async function fetchRecipes(ingredients) {
     throw error;
   }
 }
+
+
+export async function fetchChosenRecipe(id) {
+  const domain = `https://api.spoonacular.com/recipes/${id}/information`;
+
+  const queryParams = {
+    apiKey: apiKey,
+  };
+
+  const queryString = Object.keys(queryParams)
+    .map(key => key + '=' + encodeURIComponent(queryParams[key]))
+    .join('&');
+
+  const apiURL = `${domain}?${queryString}`;
+  console.log(apiURL);
+
+  try {
+    const response = await fetch(apiURL);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+}
+
+

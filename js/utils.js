@@ -42,3 +42,10 @@ export function createIngredientsList(ingredients, title) {
     listContainer.appendChild(ul);
     return listContainer;
 }
+
+
+export function redirectToRecipePage(recipeId) {
+    window.location.href = `/recipePage.html?id=${recipeId}`;
+}
+
+
