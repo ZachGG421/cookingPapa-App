@@ -32,20 +32,26 @@
 }
 
 .navbar {
+    background-color: beige;
     float: right;
     display: flex;
     align-items: center;
     gap: 94px;
     margin: 0;
-    padding: 0;
+    padding: 11px;
 }
 
 .navbaritem {
+    background-color: ;
     list-style-type: none;
     color: #252B42;
     text-align: center;
     float: right;
-    font-family: Arial;
+    font-family: Arial, cursive;
+}
+
+.navbaritem a{
+    text-decoration: none;
 }
 
 .logo {
