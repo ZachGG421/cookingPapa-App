@@ -46,7 +46,9 @@ searchButton.addEventListener('click', () => {
     const queryParams = {
         apiKey: apiKey,
         number: 10,
-        ingredients: ingredientsArr
+        ingredients: ingredientsArr,
+        //Trying to figure this out
+        addRecipeInformation: true
     };
 
     const queryString = Object.keys(queryParams)
@@ -84,6 +86,7 @@ searchButton.addEventListener('click', () => {
 
                 recipeContainer.appendChild(title);
                 resultsContainer.appendChild(recipeContainer);
+                
 
                 /*
                 const usedIngredientsList = document.createElement('ul');
