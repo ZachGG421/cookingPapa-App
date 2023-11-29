@@ -20,3 +20,38 @@
     float: left;
     margin: 1%;
 }
+
+.header {
+    display: flex;
+    padding: 9px 40px 11px 74px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 572px;
+    align-self: stretch;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 94px;
+}
+
+.navbaritem {
+    list-style-type: none;
+    color: #252B42;
+    text-align: center;
+
+/* Link */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 175% */
+    letter-spacing: 0.2px;
+}
+
+.logo {
+    display: flex;
+    margin: 0;
+}
