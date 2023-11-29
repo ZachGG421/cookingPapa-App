@@ -8,7 +8,7 @@ export async function fetchRecipes(ingredients) {
       apiKey: apiKey,
       number: 10,
       ingredients: ingredients,
-      addRecipeInformation: true,
+      //addRecipeInformation: true,
     };
 
     const queryString = Object.keys(queryParams)

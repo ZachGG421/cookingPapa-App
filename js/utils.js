@@ -23,3 +23,22 @@ export function removeIngredient(ingredientsArr, ingredientList) {
 }
 
 export const ingredientsArr = [];
+
+
+export function createIngredientsList(ingredients, title) {
+    const listContainer = document.createElement('div');
+    const listTitle = document.createElement('h3');
+    listTitle.textContent = title;
+    listContainer.appendChild(listTitle);
+
+    const ul = document.createElement('ul');
+    ingredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        li.textContent = `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`;
+        
+        ul.appendChild(li);
+    });
+
+    listContainer.appendChild(ul);
+    return listContainer;
+}

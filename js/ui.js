@@ -1,5 +1,5 @@
 //getting util functions from utils.js
-import {addIngredient, removeIngredient, ingredientsArr } from './utils.js';
+import {addIngredient, removeIngredient, ingredientsArr, createIngredientsList} from './utils.js';
 import {fetchRecipes} from './api.js'
 
 //DOM elements
@@ -9,6 +9,7 @@ const ingredientList = document.getElementById('ingredientList');
 const searchButton = document.getElementById('search');
 const remIngredientButton = document.getElementById('remIngredientButton');
 //const resultsContainer = document.querySelector('resultsContainer');
+let resultsContainer;
 
 //Event listener for adding ingredients
 addIngredientButton.addEventListener('click', (event) => {
@@ -26,13 +27,14 @@ remIngredientButton.addEventListener('click', () => {
 });
 
 searchButton.addEventListener('click', () => {
-    
-    const resultsContainer = document.createElement('div');
-    
-    resultsContainer.classList.add('results-container');
-    resultsContainer.innerHTML = '';
-    document.body.appendChild(resultsContainer);
 
+    if(resultsContainer) {
+        resultsContainer.innerHTML = '';
+    } else {
+        resultsContainer = document.createElement('div');
+        resultsContainer.classList.add('results-container');
+        document.body.appendChild(resultsContainer);
+    }
     fetchRecipes(ingredientsArr)
         .then(data => {
             
@@ -49,9 +51,21 @@ searchButton.addEventListener('click', () => {
                 const image = document.createElement('img');
                 image.src = recipe.image;
                 image.alt = recipe.title;
-                recipeContainer.appendChild(image);
 
                 recipeContainer.appendChild(title);
+                recipeContainer.appendChild(image);
+
+                if (recipe.usedIngredients) {
+                    const usedIngredientsList = createIngredientsList(recipe.usedIngredients, 'Used Ingredients:');
+                    
+                    recipeContainer.appendChild(usedIngredientsList);
+                }
+
+                if (recipe.unusedIngredients) {
+                    const unusedIngredientsList = createIngredientsList(recipe.unusedIngredients, 'Unused Ingredients:');
+                    console.log(unusedIngredientsList)
+                    recipeContainer.appendChild(unusedIngredientsList);
+                }
                 resultsContainer.appendChild(recipeContainer);
             });
         });
