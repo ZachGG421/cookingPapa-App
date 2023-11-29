@@ -22,6 +22,7 @@
 }
 
 .header {
+    background-color: #E4E4E4;
     display: flex;
     padding: 9px 40px 11px 74px;
     justify-content: flex-end;
