@@ -89,14 +89,30 @@
     float: left;
 }
 
-#aboutUsContainer {
+.aboutUsContainer {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#recipeContainer {
-    height: 100vh;
+.aboutUsContainer p {
+    margin: 0;
 }
 
-#recipesContainer {
+.recipeContainer {
     height: 100vh;
+    width: 100;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recipesContainer {
+    height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
