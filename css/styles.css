@@ -84,10 +84,6 @@
     height: 136px;
 }
 
-.h1 {
-    float: left;
-}
-
 .aboutUsContainer {
     height: 100vh;
     display: flex;
@@ -100,6 +96,7 @@
 
 .aboutUsContainer p {
     margin: 0;
+    text-align: center;
 }
 
 .recipeContainer {
@@ -121,4 +118,16 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+#spaced-paragraph {
+    margin-bottom: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
 }
