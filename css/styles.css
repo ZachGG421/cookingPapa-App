@@ -32,7 +32,7 @@
 }
 
 .navbar {
-    background-color: rgb(18, 18, 18);
+    background-color: #E4E4E4;
     float: right;
     display: flex;
     align-items: center;
@@ -43,10 +43,10 @@
 
 .navbaritem {
     list-style-type: none;
-    color: #ffffff;
+    color: black;
     text-align: center;
     float: right;
-    font-family: Arial, cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .navbaritem a{
@@ -64,7 +64,7 @@
 }
 
 .navbaritem a:visited {
-    color: white; /* Set the color for visited links */
+    color: black; /* Set the color for visited links */
 }
 
 .logo {
