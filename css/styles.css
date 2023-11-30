@@ -62,8 +62,7 @@
 }
 
 .navbaritem a:hover {
-    background-color: #FA8D0C;
-    color:black;
+    -webkit-text-fill-color:#FA8D0C;
 }
 
 .navbaritem a:visited {
