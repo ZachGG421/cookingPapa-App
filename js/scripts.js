@@ -4,6 +4,7 @@ const addIngredientButton = document.getElementById('addIngredientButton');
 const ingredientList = document.getElementById('ingredientList');
 const searchButton = document.getElementById('search');
 const remIngredientButton = document.getElementById('remIngredientButton');
+const container = document.querySelector('.container');
 
 const ingredientsArr = [];
 
@@ -28,20 +29,26 @@ addIngredientButton.addEventListener('click', (event) => {
     }
 });
 
+
 //search to api
 searchButton.addEventListener('click', () => {
+
+    const resultsContainer = document.createElement('div');
+    resultsContainer.classList.add('results-container');
+
+    document.body.appendChild(resultsContainer);
 
     //const domain = "https://api.spoonacular.com/recipes/complexSearch";
     //const domain = "https://api.spoonacular.com/recipes/6969/information";
     const domain = "https://api.spoonacular.com/recipes/findByIngredients";
     const apiKey = "bfe6078194544716a3a05ca2ca45eb48";
 
-    //const ingredients = "bananas";
-
     const queryParams = {
         apiKey: apiKey,
         number: 10,
-        ingredients: ingredientsArr
+        ingredients: ingredientsArr,
+        //Trying to figure this out
+        addRecipeInformation: true
     };
 
     const queryString = Object.keys(queryParams)
@@ -58,9 +65,57 @@ searchButton.addEventListener('click', () => {
             }
             return response.json();
         })
-        .then(data => console.log(data))
-        .catch(error => console.error("Error:", error))
-});
+        .then(data => {
+            resultsContainer.innerHTML = '';
+
+            console.log(data);
+            data.forEach(recipe => {
+                //console.log(recipe.title);
+
+                const recipeContainer = document.createElement('div')
+                recipeContainer.classList.add('recipe-container');
+
+                const title = document.createElement('h2');
+                title.textContent = recipe.title;
+
+                
+                const image = document.createElement('img');
+                image.src = recipe.image;
+                image.alt = recipe.title;
+                recipeContainer.appendChild(image);
+
+                recipeContainer.appendChild(title);
+                resultsContainer.appendChild(recipeContainer);
+                
+
+                /*
+                const usedIngredientsList = document.createElement('ul');
+                usedIngredientsList.innerHTML = '<h3>Used Ingredients:</h3>';
+                recipe.usedIngredientsList.forEach(ingredients => {
+                    const li = document.createElement('li');
+                    li.textContent = `${ingredients.amount} ${ingredients.unit} ${ingredients.name}`;
+                    usedIngredientsList.appendChild(li);
+                });
+
+                const unusedIngredientsList = document.createElement('ul');
+                unusedIngredientsList.innerHTML = '<h3> Unused Ingredients:</h3>';
+                recipe.unusedIngredients.forEach(ingredients => {
+                    const li = document.createElement('li');
+                    li.textContent = `${ingredients.amount} ${ingredients.unit} ${ingredients.name}`;
+                    unusedIngredientsList.appendChild(li);
+                });
+
+                recipeContainer.appendChild(title);
+                recipeContainer.appendChild(image);
+                recipeContainer.appendChild(usedIngredientsList);
+                recipeContainer.appendChild(unusedIngredientsList);
+
+                container.appendChild(recipeContainer);
+                */
+            });
+        })
+        .catch(error => console.error("Error:", error));
+    });
 
 
 remIngredientButton.addEventListener('click', () => {
