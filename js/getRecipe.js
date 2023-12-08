@@ -22,12 +22,14 @@ fetchChosenRecipe(recipeId)
     function displayRecipeDetails(recipe) {
         // Get the container element where you want to display the details
         const recipeContainer = document.getElementById('recipeContainer');
-    
+        
+        
         // Display title
         const title = document.createElement('h1');
         title.textContent = recipe.title;
         recipeContainer.appendChild(title);
-    
+        
+
         // Display image
         const image = document.createElement('img');
         image.src = recipe.image;
@@ -61,5 +63,6 @@ fetchChosenRecipe(recipeId)
             });
         });
         recipeContainer.appendChild(instructionsList);
+        
     }    
 

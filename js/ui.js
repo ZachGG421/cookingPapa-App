@@ -30,6 +30,7 @@ searchButton.addEventListener('click', () => {
 
     if(resultsContainer) {
         resultsContainer.innerHTML = '';
+        console.log("true")
     } else {
         resultsContainer = document.createElement('div');
         resultsContainer.classList.add('results-container');
