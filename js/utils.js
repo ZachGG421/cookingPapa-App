@@ -1,5 +1,4 @@
 
-
 //Adds ingredient input to list of ingredients
 export function addIngredient(ingredient, ingredientList, ingredientsArr) {
     const listItem = document.createElement('li');
@@ -22,9 +21,11 @@ export function removeIngredient(ingredientsArr, ingredientList) {
     }
 }
 
+//ingredients Array
 export const ingredientsArr = [];
 
 
+//creates list of ingredients based on user input
 export function createIngredientsList(ingredients, title) {
     const listContainer = document.createElement('div');
     const listTitle = document.createElement('h3');

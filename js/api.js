@@ -34,6 +34,7 @@ export async function fetchRecipes(ingredients) {
 }
 
 
+//fetch function for recipePage.html
 export async function fetchChosenRecipe(id) {
   const domain = `https://api.spoonacular.com/recipes/${id}/information`;
 

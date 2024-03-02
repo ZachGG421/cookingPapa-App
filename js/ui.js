@@ -28,46 +28,57 @@ remIngredientButton.addEventListener('click', () => {
 
 searchButton.addEventListener('click', () => {
 
+    //if results container has recipes, clear
     if(resultsContainer) {
         resultsContainer.innerHTML = '';
+    
     } else {
         resultsContainer = document.createElement('div');
         resultsContainer.classList.add('results-container');
         document.body.appendChild(resultsContainer);
     }
+
+    //api call to fetch, passing list of ingredients as parameter
     fetchRecipes(ingredientsArr)
         .then(data => {
             
             console.log(data);
             
+            //Loop for each recipe
             data.forEach(recipe => {
 
+                //creates div element with class 'recipe-container'
                 const recipeContainer = document.createElement('div');
                 recipeContainer.classList.add('recipe-container');
 
+                //declares title of each recipe to h2 element
                 const title = document.createElement('h2');
                 title.textContent = recipe.title;
 
+                //declares image of recipe to img element
                 const image = document.createElement('img');
                 image.src = recipe.image;
                 image.alt = recipe.title;
 
                 console.log(recipe.id);
 
+                //adds title and image variables to recipeContainer
                 recipeContainer.appendChild(title);
                 recipeContainer.appendChild(image);
 
+                //compares the ingredients list to the ingredients used in selected recipe and outputs them
                 if (recipe.usedIngredients) {
                     const usedIngredientsList = createIngredientsList(recipe.usedIngredients, 'Used Ingredients:');
                     recipeContainer.appendChild(usedIngredientsList);
                 }
 
+                //compares the ingredients list to the ingredients not used and outputs them
                 if (recipe.unusedIngredients) {
                     const unusedIngredientsList = createIngredientsList(recipe.unusedIngredients, 'Unused Ingredients:');
                     recipeContainer.appendChild(unusedIngredientsList);
                 }
 
-                
+                //creates 'recipe button' to redirect to page with full recipe
                 const recipeButton = document.createElement('button');
                 recipeButton.textContent = "recipe";
                 recipeButton.addEventListener('click', () => redirectToRecipePage(recipe.id));
