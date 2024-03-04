@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <title>Cooking Papa</title>
+        
+    </head>
+    <body>
+
         <header class="header">
-            <img src="cookingpapalogo.png" alt="logo">
+            <img src="cookingpapalogo.png" alt="logo" class="logo">
+            <h1 class="h1">Cooking Papa</h1>
                 <ul class="navbar">
                     <li class="navbaritem"><a href="index.html">Home</a></li>
                     <li class="navbaritem"><a href="recipePage.html">Recipes</a></li>
@@ -14,28 +19,26 @@
                     <li class="navbaritem">Login</li>
                 </ul>
         </header>   
-    </head>
-    <body>
-        <main>
-            <div class="container">
-                <div class="column" id="column1">
-                    <p>Enter your Ingredients:</p>
-
-                    <form>
-                        <input type="text" id="ingredientInput" placeholder="Ingredient">
-                        <button id="addIngredientButton">Add Ingredient</button><br>
-                        
-                    </form>
+        <div id="wrapper">
+            <main>
+                <div class="container">
+                    <div class="column" id="column1">
+                        <p>Enter your Ingredients:</p>
+                        <form>
+                            <input type="text" id="ingredientInput" placeholder="Ingredient">
+                            <button id="addIngredientButton">Add Ingredient</button><br>
+                        </form>
+                    </div>
+                    <div class="column" id="column2">
+                        <p>Ingredients List</p>
+                        <ul id="ingredientList"></ul>
+                        <button id="remIngredientButton">Remove Ingredient</button>
+                        <button id="search">Search</button>
+                    </div>
                 </div>
-                <div class="column" id="column2">
-
-                    <ul id="ingredientList"></ul>
-                    <button id="remIngredientButton">Remove Ingredient</button>
-                    <button id="search">Search</button>
-                </div>
-            </div>
-        </main>
-        <footer>
+            </main>
+        </div>
+        <footer class="footer">
             <p>&copy; 2023 CookingPapaApp A-ZTecnologyInc.</p>
         </footer>
         

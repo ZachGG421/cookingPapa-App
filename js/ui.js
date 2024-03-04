@@ -35,7 +35,7 @@ searchButton.addEventListener('click', () => {
     } else {
         resultsContainer = document.createElement('div');
         resultsContainer.classList.add('results-container');
-        document.body.appendChild(resultsContainer);
+        document.getElementById('wrapper').appendChild(resultsContainer);
     }
 
     //api call to fetch, passing list of ingredients as parameter
