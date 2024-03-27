@@ -46,7 +46,7 @@ export function createIngredientsList(ingredients, title) {
 
 
 export function redirectToRecipePage(recipeId) {
-    window.location.href = `/recipePage.html?id=${recipeId}`;
+    window.location.href = `/cookingPapa-App/public/recipePage.html?id=${recipeId}`;
 }
 
 
