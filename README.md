@@ -3,5 +3,5 @@
 # An app created by Alianna Panganiban and Zachary Garcia
 
 
-#Made with HTML, CSS, and JavaScript (Soon to be be recreated as React app)
+Made with HTML, CSS, and JavaScript (Soon to be be recreated as React app)
 #Designed with figma
